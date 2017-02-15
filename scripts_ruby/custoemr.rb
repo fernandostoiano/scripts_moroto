@@ -2,7 +2,7 @@ require 'securerandom'
 require 'mysql'
 
 def get_connection
-	con = Mysql.new('10.0.114.253', 'fernando.gonzale', 'Ab7aeakl', 'test')  
+	con = Mysql.new('localhost', 'root', 'root', 'test')  
 end
 
 def get_buyer(cus_id, con)
