@@ -1,7 +1,7 @@
 require 'mysql'
 
 def get_connection
-	conn = Mysql.new('localhost', 'root', 'Fsg@250583', 'test')
+	conn = Mysql.new('localhost', 'root', 'root', 'test')
 end
 
 
