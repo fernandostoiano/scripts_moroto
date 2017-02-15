@@ -9,12 +9,24 @@ def create_new_table(conn)
 
 	conn.query("CREATE TABLE IF NOT EXISTS \
         Writers(Id INT PRIMARY KEY AUTO_INCREMENT, Name VARCHAR(25))")
-    conn.query("INSERT INTO Writers(Name) VALUES('Jack London')")
-    conn.query("INSERT INTO Writers(Name) VALUES('Honore de Balzac')")
-    conn.query("INSERT INTO Writers(Name) VALUES('Lion Feuchtwanger')")
-    conn.query("INSERT INTO Writers(Name) VALUES('Emile Zola')")
-    conn.query("INSERT INTO Writers(Name) VALUES('Truman Capote')")   
+end
+
+def exec_script(script, conn)
+	conn.query(script)
 end
 
 conn = get_connection
 create_new_table(conn)
+
+counter = 1
+file = File.new("inserts.txt", "r")
+while (script = file.gets)
+
+	exec_script(script, conn)
+
+	puts "inicio: #{counter}"
+
+	counter = counter + 1
+end
+file.close
+conn.close
