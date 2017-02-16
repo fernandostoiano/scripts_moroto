@@ -1,7 +1,8 @@
 require 'mysql'
 
 def get_connection
-	conn = Mysql.new('localhost', 'root', 'root', 'vcmais_payments')
+	conn = Mysql.new('dbhomol.brasilct.com', 'dbroot', 'l,8X2Ik22+4$p*&', 'vcmais_payment') #remote dev
+	#conn = Mysql.new('localhost', 'root', 'root', 'vcmais_payment')
 end
 
 def exec_script(script, conn)
